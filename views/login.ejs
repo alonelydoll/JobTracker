@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head.ejs",{ title: 'Login' }) %>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+    <%- include("./partials/header-auth.ejs") %>
+  
+    <div class="title"><h2>Login</h2></div>
+    <section class="container4">
+        <form action="/login" method="post">
+            <label for="member">Email </label>
+            <input type="email" name="email" id="email">
+
+            <label for="member">Password </label>
+            <input type="password" name="password" id="password2">
+
+            <button type="submit" value="Login">Login</button>
+            <div class="errorMessage"><%= error %></div>
+            <p>Not registered yet? <a href="sign-up">Register</a></p> 
+        </form>
+    </section>
+</body>
+</html>

@@ -1,0 +1,916 @@
+// COLORS
+
+$primary-color: #1F1B24; 
+$secondary-color: #D1C4E9;
+$accent-color: #FF80AB; 
+$text-color: #ECEFF1; 
+$muted-text-color: #B0BEC5;
+
+// FONT FAMILY + SIZE
+
+$font-family-main: 'Poppins', sans-serif !important;
+$font-size-base: 16px !important;
+
+// MEDIA
+
+$breakpoint-mobile: 600px;
+$breakpoint-tablet: 900px;
+$breakpoint-desktop: 1400px;
+
+//-----------BODY + RESET-----------
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-family-main;
+    background-color: $primary-color;
+    color: $text-color;
+    font-size: $font-size-base;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+//-----------HEADER-----------
+
+header {
+    width: 100%;
+    padding: 20px;
+    background-color: lighten($primary-color, 5%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    h3 {
+        font-size: 1.5em;
+        color: $accent-color;
+
+        a {
+            text-decoration: none;
+            color: $accent-color;
+        }
+    }
+
+    .user-profile {
+            display: flex;
+            align-items: center;
+            
+        .fullname {
+            margin-right: 15px;
+            font-weight: 500;
+        }
+
+        .link-profile {
+            color: $accent-color;
+            text-decoration: none;
+            margin-left: 15px;
+            
+            &:hover {
+                color: lighten($accent-color, 10%);
+            }
+        }
+    }
+}
+
+
+//-----------TITLE-----------
+
+.title h2 {
+    font-size: 2em;  
+    color: $secondary-color;
+    text-align: center;
+    margin: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+
+//-----------PROFIL CONTAINER-----------
+
+.container2 {
+    &.profile {
+        width: 90%;
+        max-width: 600px;
+        background-color: lighten($primary-color, 10%);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+
+        .title {
+            margin-bottom: 20px;
+        }
+
+        .photo {
+            margin-bottom: 20px;
+
+            .photo-profile {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 3px solid $accent-color;
+            }
+        }
+
+        .divprofile {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            div {
+                margin-bottom: 10px;
+                width: 100%;
+
+                p {
+                margin: 0;
+                color: $text-color;
+                font-weight: 300;
+                font-size: 1.1em;
+                text-align: center;
+                }
+            }
+
+            // BUTTONS
+
+            #download-cv, #upload-cv, #change-password {
+                display: inline-block;
+                margin: 10px 0;
+                padding: 10px 20px;
+                width: 80%;
+                max-width: 250px;
+                background-color: $accent-color;
+                color: $primary-color;
+                border: none;
+                border-radius: 5px;
+                text-align: center;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                font-family: $font-family-main;
+                font-size: $font-size-base;
+                text-decoration: none;
+                height: 46px;
+
+                &:hover {
+                    background-color: darken($accent-color, 10%);
+                }
+            }
+
+            // FORM
+            
+            form {
+                width: 100%;
+                margin-top: 10px;
+                padding: 20px;
+                background-color: lighten($primary-color, 8%);
+                border-radius: 10px;
+                box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+
+                label {
+                    display: block;
+                    margin-bottom: 5px;
+                    color: $secondary-color;
+                }
+
+                input[type="file"], input[type="text"],
+                input[type="email"], input[type="number"],
+                textarea, select {
+                    width: 100%;
+                    padding: 10px;
+                    border: 1px solid $muted-text-color;
+                    border-radius: 5px;
+                    background-color: $primary-color;
+                    color: $text-color;
+                    margin-bottom: 10px;
+                }
+
+                textarea {
+                    resize: vertical;
+                }
+
+                button {
+                    display: inline-block;
+                    padding: 10px 20px;
+                    background-color: #FF80AB;
+                    color: #1F1B24;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    // font-size: 1em;
+                    transition: background-color 0.3s ease;
+
+                    &:hover {
+                        background-color: darken($secondary-color, 5%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//-----------DASHBOARD-----------
+
+.divdashboard {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: lighten($primary-color, 8%);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    max-width: 1000px;
+    width: 90%;
+
+  .title.job-title {
+    // margin-bottom: 20px;
+    
+    h2 {
+        font-size: 2.2em;
+        color: $secondary-color;
+        padding: 10px;
+    }
+  }
+
+  a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: $accent-color;
+    color: $primary-color;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: darken($accent-color, 10%);
+    }
+  }
+}
+
+
+//-----------FILTER AND JOB-----------
+
+.container3 {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: lighten($primary-color, 10%);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+
+    .filters {
+        margin-bottom: 30px;
+
+        label {
+        margin-right: 10px;
+        color: $secondary-color;
+        font-weight: 500;
+        }
+
+        select {
+        padding: 10px;
+        border: 1px solid $muted-text-color;
+        border-radius: 5px;
+        background-color: $primary-color;
+        color: $text-color;
+        margin-right: 20px;
+
+            option {
+                background-color: $primary-color;
+            }
+        }
+    }
+
+    .jobs {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+
+
+        .job {
+            padding: 15px;
+            background-color: lighten($primary-color, 15%);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            // width: 33.33%;
+
+            .status {
+                font-weight: bold;
+                padding: 5px;
+                border-radius: 5px;
+                text-align: center;
+                color: $primary-color;
+                background-color: $accent-color;
+                transform: translateY(-26px);
+                float: right;
+
+                &.interested {
+                    background-color: rgb(152, 186, 242);
+                }
+
+                &.interview {
+                    background-color: rgb(174, 242, 152);
+
+                }
+
+                &.cvSent {
+                    background-color: rgb(242, 240, 152);
+                }
+
+                &.negative {
+                    background-color: rgb(221, 188, 255);
+                }
+
+            }
+
+            .titlejob {
+                margin: 10px 0;
+                h4 {
+                    margin: 0;
+                    color: $secondary-color;
+                }
+            }
+
+            .companyname {
+                margin-bottom: 10px;
+                p {
+                    margin: 0;
+                    color: $text-color;
+                }
+            }
+
+            .link {
+                a {
+                    color: $accent-color;
+                    text-decoration: none;
+                    font-weight: 500;
+                    float: right;
+                    margin-top: 5px;
+
+                    &:hover {
+                    text-decoration: underline;
+                    }
+                }
+            }
+
+            .delete {
+                color: #FF80AB;
+                font-size: 20px;
+                cursor: pointer;
+                width: 20px;
+            }
+        }
+    }
+}
+
+
+//-----------CONTAINER 2-----------
+
+.container2 {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    margin-bottom: 30px ;
+    padding: 30px 20px;
+    // padding: 30px 20px 47px 20px;
+    background-color: #332c3b;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+      .title.job-title  {
+        h2 {
+            font-size: 2.2em;
+            color: $secondary-color;
+            padding: 10px;
+            margin-bottom: 15px;
+            }
+      }
+
+      .form-job {
+            width: 70%;
+            margin: auto;
+
+            form {
+            label {
+                display: block;
+                margin-bottom: 5px;
+                color: $secondary-color;
+            }
+    
+            input[type="text"],
+            input[type="email"],
+            input[type="number"],
+            textarea,
+            select {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid $muted-text-color;
+                border-radius: 5px;
+                background-color: $primary-color;
+                color: $text-color;
+                margin-bottom: 10px;
+            }
+    
+            textarea {
+                resize: vertical;
+            }
+    
+            button {
+                display: inline-block;
+                margin: 10px 0;
+                padding: 10px 20px;
+                width: 80%;
+                max-width: 250px;
+                background-color: $accent-color;
+                color: $primary-color;
+                border: none;
+                border-radius: 5px;
+                text-align: center;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                font-family: $font-family-main;
+                font-size: $font-size-base;
+                text-decoration: none;
+                height: 46px;
+                margin: 0;
+                position: absolute;
+                left: 50%;
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+        
+                &:hover {
+                    background-color: darken($accent-color, 10%);
+                }
+            }
+        }
+    }
+ }
+
+
+//-----------JOB UPDATE-----------
+
+.divjobupdate{
+    width: 70%;
+    margin: auto;
+
+    form {
+        position: relative;
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: $secondary-color;
+        }
+
+        input[type="text"], input[type="email"], input[type="number"],
+        textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid $muted-text-color;
+            border-radius: 5px;
+            background-color: $primary-color;
+            color: $text-color;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            resize: vertical;
+            
+            &#comments {
+                margin-bottom: 33px;
+            }
+        }
+
+        hr {
+            margin-top: 15px;
+        }
+
+        button {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            width: 80%;
+            max-width: 250px;
+            background-color: $accent-color;
+            color: $primary-color;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: $font-family-main;
+            font-size: $font-size-base;
+            text-decoration: none;
+            height: 46px;
+            margin: 0;
+            position: absolute;
+            left: 50%;
+            -ms-transform: translatex(-50%);
+            transform: translatex(-50%);
+            bottom: 0;
+
+            &:hover {
+                background-color: darken($accent-color, 10%);
+            }
+        }
+    }
+}
+
+.divjobinfo {
+    position: relative;
+    padding: 0 25px 0 25px;
+
+    p {
+        margin-bottom: 5px;
+        color: $text-color;
+        font-size: $font-size-base;
+
+        &.comment {
+            margin-bottom: 30px;
+        }
+     }
+        
+        
+    span {
+        margin: 5px 0;
+        font-weight: bold;
+        color: $secondary-color;
+    }
+
+
+    button {
+        display: inline-block;
+        margin: 10px 0;
+        padding: 10px 20px;
+        width: 80%;
+        max-width: 250px;
+        background-color: $accent-color;
+        color: $primary-color;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-family: $font-family-main;
+        font-size: $font-size-base;
+        text-decoration: none;
+        height: 46px;
+        margin: 0;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+
+        &:hover {
+            background-color: darken($accent-color, 10%);
+        }
+    }
+
+    a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: $accent-color;
+        color: $primary-color;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1em;
+        transition: background-color 0.3s ease;
+    
+        &:hover {
+            background-color: darken($accent-color, 10%);
+        }
+    }
+}
+
+.divtitle {
+        margin: 20px auto;
+        width: 90%;
+        max-width: 1000px;
+        background-color: lighten($primary-color, 8%);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        text-align: center;
+
+        a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: $accent-color;
+        color: $primary-color;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1em;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: darken($accent-color, 10%);
+        }
+        }
+
+        .title.job-title {
+        
+            h2 {
+            font-size: 2.2em;
+            color: $secondary-color;
+            padding: 10px;
+            }
+        }
+    }
+
+
+  //-----------LOGIN CONTAINER-----------
+
+  .container4 {
+        width: 90%;
+        max-width: 400px; 
+        background-color: lighten($primary-color, 10%);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        margin: 0px auto 50px auto; 
+
+    form {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            margin-bottom: 5px;
+            color: $secondary-color;
+            font-weight: 500;
+        }
+
+        input[type="email"], input[type="password"], input {
+            padding: 10px;
+            border: 1px solid $muted-text-color;
+            border-radius: 5px;
+            background-color: $primary-color;
+            color: $text-color;
+            margin-bottom: 20px; 
+            font-size: 1em;
+        }
+
+        // #repeat-password, #password2{
+        //     margin-bottom: 0;
+        // }
+
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: $accent-color;
+            color: $primary-color;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+
+            &:hover {
+                background-color: darken($accent-color, 10%);
+            }
+        }
+
+        p {
+            // margin-top: 10px;
+            text-align: center;
+            color: $text-color;
+
+            a {
+                color: $accent-color;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+
+//-----------REGISTER PAGE STYLES-----------
+
+.title h2 {
+    font-size: 2em;
+    color: $secondary-color;
+    text-align: center;
+    margin: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.container2 {
+    &.profile, &.register {
+        width: 90%;
+        max-width: 600px;
+        background-color: lighten($primary-color, 10%);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        margin-bottom: 30px;
+
+        form {
+            width: 100%;
+            margin-top: 10px;
+            padding: 20px;
+            background-color: lighten($primary-color, 8%);
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+
+            &.update-cv-form, &.update-password-form {
+                input {
+                    margin-bottom: 60px !important;
+                }
+
+                button {
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }  
+            }
+
+
+            label {
+                display: block;
+                margin-bottom: 5px;
+                color: $secondary-color;
+            }
+
+            input[type="text"], input[type="email"], input[type="password"],
+            input[type="file"], input[type="Firstname"], input[type="Lastname"],
+            input[type="Github"], input[type="repeat-password"], textarea, select {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid $muted-text-color;
+                border-radius: 5px;
+                background-color: $primary-color;
+                color: $text-color;
+                margin-bottom: 10px;
+            }
+
+            button {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: $accent-color;
+                color: $primary-color;
+                border: none;
+                border-radius: 5px;
+                text-align: center;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                font-family: $font-family-main;
+                font-size: $font-size-base;
+                text-decoration: none;
+                width: 80%;
+                max-width: 250px;
+                margin: 20px auto;
+
+                &:hover {
+                    background-color: darken($accent-color, 10%);
+                }
+            }
+
+            p {
+                text-align: center;
+                margin: 20px 0 0 0;
+
+                a {
+                    color: $accent-color;
+                    text-decoration: none;
+                    font-weight: 500;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//-----------ERROR-----------
+
+.errorMessage {
+    color: darken($accent-color, 20%);
+    padding: 10px;
+    border-radius: 5px;
+    padding: 20px 0 10px 0;
+    text-align: center;
+}
+
+
+//-----------RESPONSIVE-----------
+
+@media (max-width: $breakpoint-tablet) {
+    .container3 {
+        padding: 30px;    
+    }
+
+    .container3 .filters select {
+        width: auto;
+    }
+
+    .container3 .jobs .job {
+        padding: 10px;
+        // width: 50%;
+    }
+
+    .container3 .jobs .job {
+        padding: 10px;
+        // width: 50%;
+    }
+
+    .container3 .jobs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+  
+}
+
+
+@media (max-width: $breakpoint-mobile) {
+    header h3 {
+        font-size: 1.2em;
+    }
+  
+    .title h2,
+    .divdashboard .title.job-title h2 {
+        font-size: 1.6em; 
+    }
+  
+    .container2.profile .photo-profile {
+        width: 120px;
+        height: 120px;
+    }
+  
+    .container3 .jobs .job {
+        padding: 10px;
+        width: 100%;
+    }
+
+    .container3 .filters {
+        display: grid;
+        grid-template-columns: repeat(2, 67px);
+
+        select {
+            width: 83px;
+            margin-bottom: 5px;
+        }
+
+        label {
+            margin-top: 5px;
+        }
+    }
+
+    .container2.register {
+        padding: 20px;
+    }
+
+    .container2.register form {
+        padding: 15px;
+    }
+
+    .container4 {
+        padding: 20px;
+        max-width: 90%; 
+    }
+
+    form {
+        input[type="email"], input[type="password"] {
+            font-size: 0.9em; 
+        }
+
+        button {
+            padding: 8px 16px; 
+            font-size: 0.9em;
+        }
+    }
+
+    .container3 .jobs {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px;
+    }
+}
+  
+
+
+

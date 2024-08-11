@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head.ejs",{ title: 'Dashboard' }) %>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+    <%- include("./partials/header.ejs") %>
+
+    <section class="divdashboard">
+        <div class="title job-title"><h2>Dashboard</h2></div>
+        <div><a href="/create-job">Create a new Job</a></div>
+    </section>    
+    
+    <section class="container3">
+        <div class="filters">
+            <label for="filter">Filter by</label>
+            <select name="filter" id="filter" onchange="sortJobs()">
+                <option value="date">Date</option> 
+                <option value="status">Status</option>
+            </select>
+
+            <label for="order">Order</label>
+            <select name="order" id="order" onchange="sortJobs()">
+                <option value="asc">Asc.</option>
+                <option value="desc">Desc.</option>
+            </select>
+        </div>    
+
+        <div class="jobs">
+            <% jobs.forEach((job, i) => { %>
+                <div class="job" id=<%= i%> job-id="<%= job.jobId %>" >
+                    <div class="<%= 'status ' + job.statusClass %>"><%= job.status %></div><br>
+                    <div class="titlejob"><h4><%= job.title %></h4></div>
+                    <div class="companyname"><p><%= job.employer %></p></div>
+                    <div class="link"><a href="/dashboard/<%= job.jobId %>">See more</a></div>
+                    <a class="delete" onclick="deleteJob(this)">〤</a>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+
+    <script>
+        // Filter job by date and status
+        
+        function sortJobs() {
+            const jobContainer = document.querySelector(".jobs")
+            const jobs = [...document.querySelectorAll(".job")];
+            const filter = document.querySelector("select[name='filter']").value;
+            const order = document.querySelector("select[name='order']").value;
+            if (filter === "date") {
+                jobs.sort((a, b) => {
+                    if (order === "asc") {
+                        return a.id- b.id;
+                    } else {
+                        return b.id - a.id;
+                    }
+                });
+            } else { // status
+                jobs.sort((a, b) => {
+                    statusA = a.querySelector(".status").textContent;
+                    statusB = b.querySelector(".status").textContent;
+                    if (order === "asc") {
+                        return statusA.localeCompare(statusB);
+                    } else {
+                        return statusB.localeCompare(statusA);
+                    }
+                });
+            }
+            jobs.forEach(job => jobContainer.append(job));
+        }
+
+        function deleteJob(button) {
+            const job = button.closest(".job");
+            const jobId = job.getAttribute("job-id");
+            console.log(jobId);
+            fetch("/dashboard/" + jobId, {
+                method: 'DELETE'
+            }).then(window.location.href = "/dashboard");
+        }
+    </script>
+</body>
+</html>

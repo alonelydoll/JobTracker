@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head.ejs",{ title: 'My Profile' }) %>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+    <%- include("./partials/header.ejs") %>
+
+    <div class="title"><h2>My Profile</h2></div>
+
+    <section class="container2 profile">
+        <div class="photo">
+            <img src="<%= profilePicture %>" alt="Profile Photo" class="photo-profile">
+        </div>
+
+        <div class="divprofile"> 
+            <div class="fullname"><p>Full name: <%= fullname %>  </p></div> 
+            <div class="email"><p>Email: <%= email %> </p></div>
+            <div class="link"><p>Github: <%= github %> </p></div>
+
+            <a href="<%= cvDownload %>" id="download-cv">Download CV</a>
+            <button id="upload-cv" onclick="showUpdateForm('.update-cv-form', '.update-password-form')">Upload new CV</button>
+            <button id="change-password" onclick="showUpdateForm('.update-password-form', '.update-cv-form')">Change password</button>
+
+            <form action="/profile" method="post" enctype="multipart/form-data" class="update-cv-form" style="display: none;"> 
+                <label for="cv">Upload new CV</label>
+                <input type="file" name="cv" id="cv" accept="application/pdf">
+                <button type="submit" value="save">Save</button><br>
+            </form>
+
+            <form action="/profile" method="post" class="update-password-form" style="display: none;"> 
+                <label for="password">Enter new password</label>
+                <input type="password" name="password" id="password">
+                <button id="test" type="submit" value="save">Save</button><br>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        function showUpdateForm(formSelector, otherFormSelector) {
+            document.querySelector(formSelector).style.display = "";
+            document.querySelector(otherFormSelector).style.display = "none";
+        }
+    </script>
+</body>
+</html>

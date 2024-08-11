@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head.ejs",{ title: 'Update Job' }) %>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+    <%- include("./partials/header.ejs") %>
+
+    <section class="divtitle">
+        <div><a href="/dashboard">Back to Dashboard</a></div>
+    </section>
+
+    <section class="container2">
+        <div class="divjobinfo">
+            <div class="title job-title"><h2> <%= title %> </h2></div>
+            <p><span>Company: </span> <%= company %> </p>
+            <p><span>Website: </span> <%= website %> </p><br>
+            <hr><br>
+
+            <h4>Contact of the employer</h4><br>
+            <p><span>Name: </span> <%= employer %> </p> 
+            <p><span>Email: </span> <%= email %> </p>
+            <p><span>Phone: </span> <%= phone %> </p>
+            <p><span>Address: </span> <%= address %> </p><br>
+            <hr><br>
+
+            <p><span>Origin: </span> <%= origin %> </p>
+            <p><span>Status: </span> <%= status %> </p>
+            <p class="comment"><span>Comments: </span> <%= comments %> </p><br><br>
+
+            <button id="updatejob" onclick="displayUpdateForm()">Update</button>
+        </div>
+
+        <div class="divjobupdate" style="display: none;">
+            <form action="/dashboard/<%= jobId %>" method="post">
+            <div class="title job-title"><h2> <%= title %> </h2></div>
+                <label for="company">Company </label>
+                <input type="text" name="company" id="company" placeholder="<%= company %>">
+                
+                <label for="Website">Website </label>
+                <input type="text" name="Website" id="website" placeholder="<%= website %>">
+                <hr><br>
+
+                <h4>Contact of the employer</h4><br>
+                <label for="employersname">Name</label>
+                <input type="text" name="employersname" id="employersname" placeholder="<%= employer %>">
+
+                <label for="emailemployer">Email</label>
+                <input type="email" name="Emailofcontact" id="emailemployer" placeholder="<%= email %>">
+
+                <label for="phone">Phone</label>
+                <input type="number" name="phone" id="phone" placeholder="<%= phone %>">
+
+                <label for="address">Address</label>
+                <input type="text" name="addresscontact" id="address" placeholder="<%= address %>">
+                <hr><br>
+
+                <label for="origin">Origin</label>
+                <select name="origin" id="origin">
+                    <option value="candidature">Candidature spontanee</option>
+                    <option value="Offer">Job offer</option>
+                </select>
+
+                <label for="status">Status</label>
+                <select name="status" id="status">
+                    <option value="Interested">Interested</option>
+                    <option value="Cv sent">Cv sent</option>
+                    <option value="Negative">Negative</option>
+                    <option value="Interview">Interview</option>
+                </select><br>
+
+                <label for="comments">Comments</label>
+                <textarea id="comments" name="comments" rows="4" cols="50" placeholder="<%= comments %>"></textarea><br><br>
+                <button type="submit" id="updatejob">Update</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        function displayUpdateForm() {
+            const jobInfo = document.querySelector(".divjobinfo");
+            const jobUpdate = document.querySelector(".divjobupdate");
+            jobInfo.style.display = "none";
+            jobUpdate.style.display = "";
+        }    
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head.ejs",{ title: 'Register' }) %>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+    <%- include("./partials/header-auth.ejs") %>
+
+    <div class="title"><h2>Register</h2></div>
+
+    <section class="container4">
+        <form action="/sign-up" method="post" enctype="multipart/form-data">
+            <label for="member">Firstname * </label>
+            <input type="Firstname" name="Firstname" id="Firstname" required="">
+
+            <label for="member">Lastname * </label>
+            <input type="Lastname" name="Lastname" id="Lastname" required="">
+
+            <label for="member">Email * </label>
+            <input type="email" name="email" id="email" required="">
+
+            <label for="member">Github </label>
+            <input type="Github" name="Github" id="Github">
+
+            <label for="profilePicture">Profile picture </label>
+            <input type="file" id="profilePicture" name="profilePicture" accept="image/*">
+
+            <label for="cv">CV (pdf) </label>
+            <input type="file" id="cv" name="cv" accept="application/pdf">
+
+            <label for="member">Password * (minimum 6 characters) </label>
+            <input type="password" name="password" id="password" required="">
+
+            <label for="member">Repeat password * </label>
+            <input type="password" name="repeat-password" id="repeat-password" required="">
+
+            <button type="submit" value="register">Register</button>
+            <div class="errorMessage"><%= error %></div>
+            <p>Already registered? <a href="login">Login</a></p> 
+        </form>
+    </section>
+</body>
+</html>
