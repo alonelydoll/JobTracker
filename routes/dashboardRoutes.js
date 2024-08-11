@@ -21,7 +21,6 @@ router.get('/', requireAuth, checkUser, async (req, res) => {
 });
 
 router.get('/:id', requireAuth, async (req, res) => {
-    console.log("LA");
     const jobId = req.params.id;
     const job = await Job.findById(jobId);
     res.render('updatejob', {
@@ -64,6 +63,7 @@ router.delete('/:id', requireAuth, async (req, res) => {
     const jobId = req.params.id;
     await Job.deleteOne({_id: jobId}).then(() => {
         res.status(200);
+        res.json({res: "OK"}); // dummy response
     }).catch(function(err){
         res.status(400).json({ err });
     });

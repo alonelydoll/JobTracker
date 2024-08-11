@@ -34,7 +34,7 @@
                     <div class="titlejob"><h4><%= job.title %></h4></div>
                     <div class="companyname"><p><%= job.employer %></p></div>
                     <div class="link"><a href="/dashboard/<%= job.jobId %>">See more</a></div>
-                    <a class="delete" onclick="deleteJob(this)">〤</a>
+                    <a class="delete" onclick="deleteJob(this)">X</a>
                 </div>
             <% }) %>
         </div>
@@ -73,10 +73,9 @@
         function deleteJob(button) {
             const job = button.closest(".job");
             const jobId = job.getAttribute("job-id");
-            console.log(jobId);
             fetch("/dashboard/" + jobId, {
                 method: 'DELETE'
-            }).then(window.location.href = "/dashboard");
+            }).then(res => window.location.href = "/dashboard");
         }
     </script>
 </body>
